@@ -1,8 +1,19 @@
+/* Reset some default styles */
+body,
+h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply a box-sizing border-box model globally */
+* {
+  box-sizing: border-box;
+}
+
 html {
   margin: 0;
   font-size: 10px;
   font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
 }
 
 body {
@@ -21,10 +32,11 @@ body {
   width: 20%;
 }
 
-.pictures{
+.pictures {
   width: 75%;
   padding-right: 5rem;
-
+  position: relative;
+  overflow: hidden;
 }
 
 .name {
@@ -48,7 +60,7 @@ body {
   font-weight: bold;
 }
 
-.resume{
+.resume {
   font-weight: bold;
 }
 
@@ -78,6 +90,13 @@ body {
   max-width: 20rem;
 }
 
+.japanese-text {
+  color: grey;
+  font-size: 1rem;
+  padding-top: 2rem;
+  max-width: 20rem;
+}
+
 .name:hover,
 .selectedprojects:hover,
 .archives:hover,
@@ -94,94 +113,90 @@ body {
 
 .japanese-text {
   display: none;
-  color: grey;
-  font-size: 1rem;
-  max-width: 20rem;
-  padding-top: 2rem;
-
-
 }
 
 .info:hover .japanese-text {
   display: block;
 }
 
+/* ... (previous styles) ... */
 
+.japanese-text {
+  display: none;
+}
 
-@media (max-width: 768px) {
-  body {
-    font-size: 1.2rem; /* Adjust the font size for tablet-sized screens */
-  }
-
-  .info {
-    width: 100%; /* Full width for the info section on smaller screens */
+/* Display Japanese text on hover for larger screens */
+@media (min-width: 481px) {
+  .info:hover .japanese-text {
+    display: block;
   }
 }
 
-/* Your existing styles */
+/* Hide Japanese text on all screens */
+@media only screen and (max-width: 480px) {
+  .japanese-text {
+    display: none !important;
+  }
+}
 
-/* Media query for small screens including phones */
+/* ... (remaining styles) ... */
+
+
 @media (max-width: 480px) {
   body {
-    font-size: 1rem; /* Adjust the font size for smaller screens */
+    font-size: 1rem;
   }
 
   .info {
-    width: 100%; /* Full width for the info section on smaller screens */
+    width: 100%;
   }
 
-  /* Hide unnecessary elements on smaller screens */
   .pictures,
   .email,
   .ig,
   .linkedin,
   .aboutme,
+  .japanese-text,
+  .resume,
   .selectedprojectslist div {
     display: none;
   }
 
-  /* Horizontally align and space evenly the specified words */
   .info {
     display: flex;
-    flex-direction: row; /* Set flex direction to row */
-    justify-content: space-around; /* Space around items for equal spacing */
-    align-items: flex-start; /* Align at the start */
-    height: 100vh; /* Optional: makes sure the content takes up the full viewport height */
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 100vh;
   }
 
-  /* Style for the specified words */
   .name,
   .projects,
   .archives,
   .contact {
     text-align: center;
     font-weight: bold;
-    padding: 0.5rem; /* Adjusted padding for better spacing */
+    padding: 0.5rem;
   }
 
-  /* Hide "Selected Projects" on mobile */
   .selectedprojects {
     display: none;
   }
 }
 
-/* Your existing styles */
-
-/* Media query for larger screens (desktop and tablet) */
 @media (min-width: 481px) {
-  /* Hide unnecessary elements on larger screens */
   .contact {
     display: none;
   }
 
-  /* Hide "Projects" on desktop and tablet */
   .projects {
     display: none;
   }
+
+  .contact-content {
+    display: none;
+  }
 }
-
-
-/* Your existing styles */
 
 .selectedprojectslist div {
   position: relative;
@@ -190,14 +205,14 @@ body {
 .selectedprojectslist div::before {
   content: '';
   position: absolute;
-  left: -2rem; /* Adjust the distance from the left */
+  left: -2rem;
   top: 50%;
   transform: translateY(-50%);
-  width: 1.25rem; /* Adjust the default size of the circle */
+  width: 1.25rem;
   height: 1.25rem;
   border-radius: 50%;
-  background-color: #b70000; /* Red color */
-  display: none; /* Initially hide the circle */
+  background-color: #b70000;
+  display: none;
 }
 
 .selectedprojectslist div:hover {
@@ -205,57 +220,18 @@ body {
 }
 
 .selectedprojectslist div:hover::before {
-  display: block; /* Display the circle on hover */
+  display: block;
 }
 
-/* Media query for tablet screens */
 @media (max-width: 768px) {
   .selectedprojectslist div::before {
-    width: 0.75rem; /* Adjust the size of the circle for tablet */
+    width: 0.75rem;
     height: 0.75rem;
-    left: -1rem; /* Adjust the distance from the left for tablet */
+    left: -1rem;
   }
 }
 
-/* Your existing styles */
 
 
-.pictures {
-  width: 75%;
-  padding-right: 5rem;
-  position: relative;
-  overflow: hidden;
-}
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
-}
 
-.column {
-  flex: 50%;
-  padding: 0 4px;
-}
-
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%; /* Make images fill the entire column */
-}
-
-.image-container {
-  width: 50%; /* 75% / 2 */
-  position: absolute;
-  bottom: 0;
-  animation: movePictures 16s linear infinite; /* Adjust duration based on your preference */
-}
-
-@keyframes movePictures {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
-}
