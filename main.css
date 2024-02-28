@@ -1,8 +1,19 @@
 /* Reset some default styles */
 body,
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin: 0;
   padding: 0;
+}
+
+@font-face {
+  font-family: "newedge_666regular";
+  src: url("newedge666-regular-webfont.woff2") format("woff2"),
+    url("newedge666-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Apply a box-sizing border-box model globally */
@@ -13,7 +24,7 @@ h1, h2, h3, p {
 html {
   margin: 0;
   font-size: 10px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "newedge_666regular", serif;
 }
 
 body {
@@ -23,6 +34,7 @@ body {
 }
 
 .info {
+  flex: 20%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -30,10 +42,11 @@ body {
   text-decoration: none;
   color: black;
   width: 20%;
+  max-height: 500px;
 }
 
 .pictures {
-  width: 75%;
+  width: 70%;
   padding-right: 5rem;
   position: relative;
   overflow: hidden;
@@ -52,6 +65,7 @@ body {
 .selectedprojects {
   padding-top: 2rem;
   font-weight: bold;
+  color: #b70000;
 }
 
 .archives,
@@ -62,6 +76,76 @@ body {
 
 .resume {
   font-weight: bold;
+}
+
+.pagecols {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.row {
+  flex: 70%;
+  max-height: 600px;
+  overflow-y: auto;
+  --move-initial: calc(0%);
+  --move-final: calc(-50%);
+}
+
+.scroll {
+  transform: translate3d(0, var(--move-initial), 0);
+  animation: autoscroll 20s linear infinite;
+  animation-play-state: running;
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.repeated {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+@keyframes autoscroll {
+  0% {
+    transform: translate3d(0, var(--move-initial), 0);
+  }
+
+  100% {
+    transform: translate3d(0, var(--move-final), 0);
+  }
+}
+
+.column {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 /* Additional specificity for anchor elements within .ig and .linkedin */
@@ -141,7 +225,6 @@ body {
 
 /* ... (remaining styles) ... */
 
-
 @media (max-width: 480px) {
   body {
     font-size: 1rem;
@@ -163,11 +246,12 @@ body {
   }
 
   .info {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
-    height: 100vh;
+    height: 4vh;
   }
 
   .name,
@@ -203,7 +287,7 @@ body {
 }
 
 .selectedprojectslist div::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -2rem;
   top: 50%;
@@ -231,7 +315,30 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .contact,
+  .selectedprojects,
+  .name,
+  .projects,
+  .archives,
+  .email,
+  .ig,
+  .linkedin,
+  .aboutme,
+  .japanese-text,
+  .resume,
+  .selectedprojectslist div {
+    font-size: 0.8rem; 
+  }
 
+  .projects{
+    color: #b70000;
+  }
 
-
+  .selectedprojectslist div::before {
+    width: 0.75rem;
+    height: 0.75rem;
+    left: -1rem;
+  }
+}
 
