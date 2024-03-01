@@ -46,3 +46,8 @@ const runLenis = () => {
     
     requestAnimationFrame(raf);
 }
+
+function redirectToContactPage() {
+    window.location.href = "https://moeebii.github.io/moeebiicontact/";
+  }
+  
