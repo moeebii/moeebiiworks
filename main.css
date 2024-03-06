@@ -87,6 +87,7 @@ body {
 .row {
   flex: 70%;
   max-height: 600px;
+  margin-left: 4rem;
   overflow-y: auto;
   --move-initial: calc(0%);
   --move-final: calc(-50%);
