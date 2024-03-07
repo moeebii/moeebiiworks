@@ -17,40 +17,32 @@ document.addEventListener("DOMContentLoaded", function() {
   // Adjust the speed (second parameter) to control the typing speed
   typeWriterEffect(text, writeupElement, 100);
 });
-
-
 document.addEventListener("DOMContentLoaded", function() {
-  const canvas = document.getElementById("doodleCanvas");
-  const context = canvas.getContext("2d");
   const container = document.body;
 
-  let isDoodling = false;
-  let lastX, lastY;
+  container.addEventListener("mousemove", function(event) {
+    createDoodle(event.clientX, event.clientY);
+  });
 
-  container.addEventListener("mousedown", startDoodle);
-  container.addEventListener("mousemove", draw);
-  container.addEventListener("mouseup", stopDoodle);
+  function createDoodle(x, y) {
+    const circle = document.createElement("div");
+    circle.className = "doodle-circle";
+    container.appendChild(circle);
 
-  function startDoodle(event) {
-    isDoodling = true;
-    [lastX, lastY] = [event.clientX, event.clientY];
-  }
+    const circleStyle = circle.style;
 
-  function draw(event) {
-    if (!isDoodling) return;
+    const size = 100; // Adjust the size of circles
 
-    context.beginPath();
-    context.moveTo(lastX, lastY);
-    context.lineTo(event.clientX, event.clientY);
-    context.strokeStyle = "#b70000";
-    context.lineWidth = 5;
-    context.lineCap = "round";
-    context.stroke();
+    circleStyle.width = `${size}px`;
+    circleStyle.height = `${size}px`;
 
-    [lastX, lastY] = [event.clientX, event.clientY];
-  }
+    circleStyle.left = `${x - size / 2}px`;
+    circleStyle.top = `${y - size / 2}px`;
 
-  function stopDoodle() {
-    isDoodling = false;
+    setTimeout(() => {
+      container.removeChild(circle);
+    }, 5000); // Remove after 10 seconds
   }
 });
+
+
