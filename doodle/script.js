@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const text = "congrats! you found me! doodle here:";
+  const text = "congrats! you found me! doodle here ☻:";
   const writeupElement = document.getElementById("typewriter");
 
   function typeWriterEffect(text, element, speed) {
