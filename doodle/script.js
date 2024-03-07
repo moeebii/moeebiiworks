@@ -18,30 +18,41 @@ document.addEventListener("DOMContentLoaded", function() {
   typeWriterEffect(text, writeupElement, 100);
 });
 document.addEventListener("DOMContentLoaded", function() {
-  const container = document.body;
+  const canvas = document.getElementById("doodleCanvas");
+  const ctx = canvas.getContext("2d");
+  let isDrawing = false;
 
-  container.addEventListener("mousemove", function(event) {
-    createDoodle(event.clientX, event.clientY);
-  });
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-  function createDoodle(x, y) {
-    const circle = document.createElement("div");
-    circle.className = "doodle-circle";
-    container.appendChild(circle);
+  canvas.addEventListener("mousedown", startDrawing);
+  canvas.addEventListener("mousemove", draw);
+  canvas.addEventListener("mouseup", stopDrawing);
+  canvas.addEventListener("mouseleave", stopDrawing);
 
-    const circleStyle = circle.style;
+  // Set the drawing color to #b70000
+  ctx.fillStyle = "#b70000";
 
-    const size = 100; // Adjust the size of circles
+  function startDrawing(event) {
+    isDrawing = true;
+    draw(event); // Draw initial point
+  }
 
-    circleStyle.width = `${size}px`;
-    circleStyle.height = `${size}px`;
+  function draw(event) {
+    if (!isDrawing) return;
 
-    circleStyle.left = `${x - size / 2}px`;
-    circleStyle.top = `${y - size / 2}px`;
+    const size = 20; // Adjust the size of the pen
+    const x = event.clientX - canvas.offsetLeft;
+    const y = event.clientY - canvas.offsetTop;
 
-    setTimeout(() => {
-      container.removeChild(circle);
-    }, 5000); // Remove after 10 seconds
+    ctx.beginPath();
+    ctx.arc(x, y, size / 2, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+  }
+
+  function stopDrawing() {
+    isDrawing = false;
   }
 });
 

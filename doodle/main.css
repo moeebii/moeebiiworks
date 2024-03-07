@@ -55,14 +55,16 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.doodle-circle {
-  position: absolute;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: #b70000;
-  pointer-events: none;
+
+
+#doodleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #b70000;
 }
+
+
 
 .writeup{
     color: #b70000;
