@@ -458,6 +458,21 @@ body {
 
 
 @media (max-width: 479px) {
+
+  /* ... (your existing styles) ... */
+
+
+  .gallery {
+    display: flex;
+    flex-direction: column; /* Display images in a single column */
+  }
+
+  .gallery a {
+    flex: 0 0 100%; /* Set the width of each image to 100% for a single column */
+    margin: 1%; /* Adjust margin as needed */
+  }
+
+
   .pagecols {
     flex-direction: column-reverse; /* Reverse the order of flex items for smaller screens */
   }
