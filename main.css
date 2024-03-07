@@ -147,6 +147,7 @@ body {
 
 .gallery a {
   flex: 0 0 48%; /* Set the width of each image to 48% to create two columns with some spacing */
+  display: flex;
   margin: 1%; /* Add some margin for spacing between images */
   overflow: hidden; /* Hide any overflow to enforce cropping */
 }
