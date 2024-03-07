@@ -1,15 +1,11 @@
-/* Reset some default styles */
 body,
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin: 0;
   padding: 0;
 }
-
-/* Apply a box-sizing border-box model globally */
-* {
-  box-sizing: border-box;
-}
-
 
 @font-face {
   font-family: 'newedge_666regular_rounded';
@@ -30,6 +26,20 @@ h1, h2, h3, p {
 
 }
 
+.info .selectedprojects,
+.info .selectedprojects a {
+  color: #b70000;
+}
+
+
+.name{
+    font-family: 'newedge_666regular_rounded';
+}
+
+h1{
+  font-family: 'newedge_666regular_rounded';
+}
+
 @font-face {
   font-family: "newedge_666regular";
   src: url("newedge666-regular-webfont.woff2") format("woff2"),
@@ -38,12 +48,9 @@ h1, h2, h3, p {
   font-style: normal;
 }
 
-.name{
-    font-family: 'newedge_666regular_rounded';
-}
-
-h1{
-  font-family: 'newedge_666regular_rounded';
+/* Apply a box-sizing border-box model globally */
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -58,9 +65,6 @@ body {
   margin: 0;
   padding: 5rem;
 }
-
-
-
 .info {
   position: sticky;
   top: 0;
@@ -75,18 +79,21 @@ body {
   color: black;
 }
 
-.pictures {
-  width: 70%;
-  padding-right: 5rem;
-  position: relative;
-  overflow: hidden;
-}
-
 
 .emoji-link{
   text-decoration: none;
 
 
+}
+
+
+
+
+.pictures {
+  width: 70%;
+  padding-right: 5rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .name {
@@ -102,8 +109,9 @@ body {
 .selectedprojects {
   padding-top: 2rem;
   font-weight: bold;
-  color: #b70000;
 }
+
+
 
 .archives,
 .email {
@@ -115,75 +123,25 @@ body {
   font-weight: bold;
 }
 
+
 .pagecols {
   display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
+  justify-content: space-between;
+  overflow: hidden; /* Hide the overflow to prevent scrolling */
 }
 
 .row {
-  flex: 80%;
-  max-height: 1000x;
-  overflow-y: auto;
-  --move-initial: calc(0%);
-  --move-final: calc(-50%);
-}
-
-.scroll {
-  transform: translate3d(0, var(--move-initial), 0);
-  animation: autoscroll 20s linear infinite;
-  animation-play-state: running;
-}
-
-.paused {
-  animation-play-state: paused;
-}
-
-.repeated {
   display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
+  flex: 70%;
+  max-height: auto;
+  flex-direction: column;
+  margin-left: 4rem;
+  height: 100vh; /* Occupy full height of viewport */
+  overflow-y: auto; /* Add a scrollbar if content exceeds the height */
+  
 }
 
-@keyframes autoscroll {
-  0% {
-      transform: translate3d(0, var(--move-initial), 0);
-  }
 
-  100% {
-      transform: translate3d(0, var(--move-final), 0);
-  }
-}
-
-.column {
-  flex: 50%;
-  padding: 0 4px;
-}
-
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-}
-
-html.lenis {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
 
 /* Additional specificity for anchor elements within .ig and .linkedin */
 .ig a,
@@ -237,13 +195,17 @@ html.lenis {
   color: grey;
   font-size: 1.25rem;
   padding-top: 2rem;
-  max-width: 20rem;
+  max-width: 19rem;
 }
 
 .aboutme .emoji-link {
   text-decoration: none; /* Remove underline for the link */
   color: grey; /* Set initial color to black */
   transition: color 0.3s ease; /* Add smooth transition effect */
+}
+
+.aboutme .emoji-link:hover {
+  color: #333; /* Darken the color on hover */
 }
 
 
@@ -254,6 +216,28 @@ html.lenis {
   max-width: 20rem;
 }
 
+/* Add these styles at the end of your existing CSS */
+
+.falling-circle {
+  width: calc(70% / 5); /* Set the width based on 70% of the row divided by the number of circles */
+  height: 20px; /* Set the height of the circles */
+  background-color: #b70000; /* Set the background color */
+  border-radius: 50%; /* Create a circular shape */
+  position: absolute;
+  bottom: 0; /* Initial position at the bottom of the .row */
+  animation: fall 2s linear infinite; /* Adjust the animation duration and easing as needed */
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh); /* Translate the circle down by the viewport height */
+  }
+}
+
+
+
+
+
 .name:hover,
 .selectedprojects:hover,
 .archives:hover,
@@ -262,6 +246,10 @@ html.lenis {
 .linkedin:hover,
 .projects:hover,
 .contact:hover,
+.thelostwords:hover,
+.bluegirl:hover,
+.thegardenofforkingpaths:hover,
+.dogsoninstagram:hover,
 .selectedprojectslist div:hover {
   color: #b70000;
   cursor: pointer;
@@ -297,7 +285,6 @@ html.lenis {
 }
 
 /* ... (remaining styles) ... */
-
 
 @media (max-width: 480px) {
   body {
@@ -361,7 +348,7 @@ html.lenis {
 }
 
 .selectedprojectslist div::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -2rem;
   top: 50%;
@@ -381,6 +368,7 @@ html.lenis {
   display: block;
 }
 
+
 @media (max-width: 768px) {
   .selectedprojectslist div::before {
     width: 0.75rem;
@@ -389,7 +377,130 @@ html.lenis {
   }
 }
 
+@media (max-width: 800px) {
+  .contact,
+  .selectedprojects,
+  .name,
+  .projects,
+  .archives,
+  .email,
+  .ig,
+  .linkedin,
+  .aboutme,
+  .japanese-text,
+  .resume,
+  .selectedprojectslist div {
+    font-size: 1rem; 
+  }
+
+  .selectedprojectslist div::before {
+    width: 0.75rem;
+    height: 0.75rem;
+    left: -1rem;
+  }
+}
+
+/* ... (previous styles) ... */
+
+@media (max-width: 992px) {
+  .image-container {
+    font-size: 1.3rem;
+  }
+
+  .image-container img{
+    max-width: 80rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .image-container {
+    max-width: 50em;
+  }
+
+  .text-container {
+    max-width: 25em;
+    font-size: 1rem;
+
+  }
+}
+
+@media (max-width: 600px) {
+  .text-container {
+    font-size: 0.8rem;
+
+
+  }
+
+  .writeup {
+  width: 30rem;
+}
+}
 
 
 
+@media (max-width: 479px) {
+  .pagecols {
+    flex-direction: column-reverse; /* Reverse the order of flex items for smaller screens */
+  }
+
+  .name{
+    font-family: 'newedge_666light_rounded';
+    
+  }
+
+  .projects, .archives, .contact {
+    font-family: 'newedge_666light_rounded';
+
+  }
+  
+
+  .info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center; /* Align vertically centered */
+    height: auto;
+    padding: 1rem; /* Adjust padding as needed */
+    background-color: #ffffff; /* Set a background color if needed */
+  }
+
+  .row {
+    order: 1; /* Move the .row div to the top */
+    margin-left: 0; /* Remove left margin */
+  }
+
+  .row > * {
+    width: 100%; /* Make sure each item takes full width */
+  }
+
+  .text-container {
+    margin-bottom: 2rem; /* Reduce bottom margin for mobile */
+    width: 100%; /* Take full width */
+  }
+
+  .writeup {
+    width: 26rem; /* Take full width within the text container */
+    font-size: 1rem;
+  }
+
+ .info .projects a {
+      color: #b70000;
+      text-decoration: none;
+
+  }
+    .info .contact a {
+      color: black;
+      text-decoration: none;
+    }
+  
+    .info .contact a:hover,
+    .info .projects a:hover {
+      color: #b70000;
+    }
+  }
 
