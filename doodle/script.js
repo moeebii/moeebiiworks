@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Adjust the speed (second parameter) to control the typing speed
   typeWriterEffect(text, writeupElement, 100);
 });
+
 document.addEventListener("DOMContentLoaded", function() {
   const canvas = document.getElementById("doodleCanvas");
   const ctx = canvas.getContext("2d");
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function startDrawing(event) {
     isDrawing = true;
-    draw(event); // Draw initial point
+    draw(event); // Draw the initial point
   }
 
   function draw(event) {
@@ -56,4 +57,12 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  const backLink = document.getElementById("backLink");
 
+  // Add a click event listener to the back link
+  backLink.addEventListener("click", function() {
+    // Use the window.history object to navigate back
+    window.history.back();
+  });
+});
