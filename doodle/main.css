@@ -1,0 +1,402 @@
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "newedge_666regular";
+  src: url("newedge666-regular-webfont.woff2") format("woff2"),
+    url("newedge666-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply a box-sizing border-box model globally */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  font-size: 10px;
+  font-family: "newedge_666regular", serif;
+}
+
+body {
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 5rem;
+}
+
+.info {
+  flex: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: start;
+  text-decoration: none;
+  color: black;
+  width: 20%;
+  max-height: 500px;
+}
+
+.pictures {
+  width: 70%;
+  padding-right: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.name {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.selectedprojectslist {
+  padding-left: 2rem;
+  padding-top: 2rem;
+}
+
+.selectedprojects {
+  padding-top: 2rem;
+  font-weight: bold;
+}
+
+
+.selectedprojects{
+  color: #b70000;
+}
+
+.archives,
+.email {
+  padding-top: 2rem;
+  font-weight: bold;
+}
+
+.resume {
+  font-weight: bold;
+}
+
+.pagecols {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.row {
+  display: flex;
+  flex: 70%;
+  max-height: 600px;
+  flex-direction: column; /* Stack items vertically */
+margin-left: 4rem;
+}
+
+
+.scroll {
+  transform: translate3d(0, var(--move-initial), 0);
+  animation: autoscroll 20s linear infinite;
+  animation-play-state: running;
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.repeated {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+@keyframes autoscroll {
+  0% {
+      transform: translate3d(0, var(--move-initial), 0);
+  }
+
+  100% {
+      transform: translate3d(0, var(--move-final), 0);
+  }
+}
+
+.column {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+.ig a,
+.email a,
+.resume a,
+.linkedin a,
+.name a,
+.thelostwords a,
+.bluegirl a,
+.thegardenofforkingpaths a,
+.dogsoninstagram a,
+.tokkichan a,
+.selectedprojects a,
+.archives a
+{
+  color: black;
+  text-decoration: none;
+}
+
+/* Adjusted hover styles for anchor elements within .ig and .linkedin */
+.ig a:hover,
+.email a:hover,
+.resume a:hover,
+.linkedin a:hover,
+.name a:hover,
+.thelostwords a:hover,
+.bluegirl a:hover,
+.tokkichan a:hover,
+.thegardenofforkingpaths a:hover,
+.dogsoninstagram a:hover,
+.selectedprojects a:hover
+.archives a:hover
+ {
+  color: #b70000;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.aboutme {
+  color: grey;
+  font-size: 1.25rem;
+  padding-top: 2rem;
+  max-width: 19rem;
+}
+
+.japanese-text {
+  color: grey;
+  font-size: 1rem;
+  padding-top: 2rem;
+  max-width: 20rem;
+}
+
+
+.name:hover,
+.selectedprojects:hover,
+.archives:hover,
+.email:hover,
+.ig:hover,
+.linkedin:hover,
+.projects:hover,
+.contact:hover,
+.thelostwords:hover,
+.bluegirl:hover,
+.thegardenofforkingpaths:hover,
+.dogsoninstagram:hover,
+.selectedprojectslist div:hover {
+  color: #b70000;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.japanese-text {
+  display: none;
+}
+
+.info:hover .japanese-text {
+  display: block;
+}
+
+/* ... (previous styles) ... */
+
+.japanese-text {
+  display: none;
+}
+
+/* Display Japanese text on hover for larger screens */
+@media (min-width: 481px) {
+  .info:hover .japanese-text {
+    display: block;
+  }
+}
+
+/* Hide Japanese text on all screens */
+@media only screen and (max-width: 480px) {
+  .japanese-text {
+    display: none !important;
+  }
+}
+
+/* ... (remaining styles) ... */
+
+@media (max-width: 480px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .pictures,
+  .email,
+  .ig,
+  .linkedin,
+  .aboutme,
+  .japanese-text,
+  .resume,
+  .selectedprojectslist div {
+    display: none;
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 4vh;
+  }
+
+  .name,
+  .projects,
+  .archives,
+  .contact {
+    text-align: center;
+    font-weight: bold;
+    padding: 0.5rem;
+  }
+
+  .selectedprojects {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) {
+  .contact {
+    display: none;
+  }
+
+  .projects {
+    display: none;
+  }
+
+  .contact-content {
+    display: none;
+  }
+}
+
+.selectedprojectslist div {
+  position: relative;
+}
+
+.selectedprojectslist div::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background-color: #b70000;
+  display: none;
+}
+
+.selectedprojectslist div:hover {
+  color: #b70000;
+}
+
+.selectedprojectslist div:hover::before {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .selectedprojectslist div::before {
+    width: 0.75rem;
+    height: 0.75rem;
+    left: -1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .contact,
+  .selectedprojects,
+  .name,
+  .projects,
+  .archives,
+  .email,
+  .ig,
+  .linkedin,
+  .aboutme,
+  .japanese-text,
+  .resume,
+  .selectedprojectslist div {
+    font-size: 1rem; 
+  }
+
+  .projects{
+    color: #b70000;
+  }
+
+  .selectedprojectslist div::before {
+    width: 0.75rem;
+    height: 0.75rem;
+    left: -1rem;
+  }
+}
+
+/* ... (previous styles) ... */
+
+@media (max-width: 992px) {
+  .image-container {
+    font-size: 1.3rem;
+  }
+
+  .image-container img{
+    max-width: 80rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .image-container {
+    max-width: 50em;
+  }
+
+  .text-container {
+    max-width: 25em;
+    font-size: 1rem;
+
+  }
+}
+
+@media (max-width: 600px) {
+  .text-container {
+    font-size: 0.8rem;
+
+  }
+}
+
