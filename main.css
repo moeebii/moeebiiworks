@@ -218,21 +218,6 @@ body {
 
 /* Add these styles at the end of your existing CSS */
 
-.falling-circle {
-  width: calc(70% / 5); /* Set the width based on 70% of the row divided by the number of circles */
-  height: 20px; /* Set the height of the circles */
-  background-color: #b70000; /* Set the background color */
-  border-radius: 50%; /* Create a circular shape */
-  position: absolute;
-  bottom: 0; /* Initial position at the bottom of the .row */
-  animation: fall 2s linear infinite; /* Adjust the animation duration and easing as needed */
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(100vh); /* Translate the circle down by the viewport height */
-  }
-}
 
 
 
