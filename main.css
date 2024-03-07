@@ -1,10 +1,33 @@
+/* Reset some default styles */
 body,
-h1,
-h2,
-h3,
-p {
+h1, h2, h3, p {
   margin: 0;
   padding: 0;
+}
+
+/* Apply a box-sizing border-box model globally */
+* {
+  box-sizing: border-box;
+}
+
+
+@font-face {
+  font-family: 'newedge_666regular_rounded';
+  src: url('newedge666-regularrounded-webfont.woff2') format('woff2'),
+       url('newedge666-regularrounded-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'newedge_666light_rounded';
+  src: url('newedge666-lightrounded-webfont.woff2') format('woff2'),
+       url('newedge666-lightrounded-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
 }
 
 @font-face {
@@ -15,15 +38,19 @@ p {
   font-style: normal;
 }
 
-/* Apply a box-sizing border-box model globally */
-* {
-  box-sizing: border-box;
+.name{
+    font-family: 'newedge_666regular_rounded';
+}
+
+h1{
+  font-family: 'newedge_666regular_rounded';
 }
 
 html {
   margin: 0;
   font-size: 10px;
   font-family: "newedge_666regular", serif;
+
 }
 
 body {
@@ -32,16 +59,20 @@ body {
   padding: 5rem;
 }
 
+
+
 .info {
-  flex: 20%;
+  position: sticky;
+  top: 0;
+  width: 20%;
+  max-height: 100vh;
+  overflow-y: auto; /* Add a scrollbar if content exceeds the height */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-content: start;
   text-decoration: none;
   color: black;
-  width: 20%;
-  max-height: 500px;
 }
 
 .pictures {
@@ -49,6 +80,13 @@ body {
   padding-right: 5rem;
   position: relative;
   overflow: hidden;
+}
+
+
+.emoji-link{
+  text-decoration: none;
+
+
 }
 
 .name {
@@ -64,10 +102,6 @@ body {
 .selectedprojects {
   padding-top: 2rem;
   font-weight: bold;
-}
-
-
-.selectedprojects{
   color: #b70000;
 }
 
@@ -83,18 +117,17 @@ body {
 
 .pagecols {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 4px;
 }
-
 
 .row {
-  display: flex;
-  flex: 70%;
+  flex: 80%;
   max-height: 600px;
-  flex-direction: column; /* Stack items vertically */
-margin-left: 4rem;
+  overflow-y: auto;
+  --move-initial: calc(0%);
+  --move-final: calc(-50%);
 }
-
 
 .scroll {
   transform: translate3d(0, var(--move-initial), 0);
@@ -152,6 +185,7 @@ html.lenis {
   pointer-events: none;
 }
 
+/* Additional specificity for anchor elements within .ig and .linkedin */
 .ig a,
 .email a,
 .resume a,
@@ -163,10 +197,21 @@ html.lenis {
 .dogsoninstagram a,
 .tokkichan a,
 .selectedprojects a,
-.archives a
+.archives a,
+.h1 a,
+.p a
 {
   color: black;
   text-decoration: none;
+}
+
+.image-title a {
+  color: black; /* Set the color to black */
+  text-decoration: none; /* Remove underline, if you want */
+}
+
+.writeup a {
+  color: black; /* Set the color to black */
 }
 
 /* Adjusted hover styles for anchor elements within .ig and .linkedin */
@@ -192,8 +237,15 @@ html.lenis {
   color: grey;
   font-size: 1.25rem;
   padding-top: 2rem;
-  max-width: 19rem;
+  max-width: 20rem;
 }
+
+.aboutme .emoji-link {
+  text-decoration: none; /* Remove underline for the link */
+  color: grey; /* Set initial color to black */
+  transition: color 0.3s ease; /* Add smooth transition effect */
+}
+
 
 .japanese-text {
   color: grey;
@@ -201,7 +253,6 @@ html.lenis {
   padding-top: 2rem;
   max-width: 20rem;
 }
-
 
 .name:hover,
 .selectedprojects:hover,
@@ -211,10 +262,6 @@ html.lenis {
 .linkedin:hover,
 .projects:hover,
 .contact:hover,
-.thelostwords:hover,
-.bluegirl:hover,
-.thegardenofforkingpaths:hover,
-.dogsoninstagram:hover,
 .selectedprojectslist div:hover {
   color: #b70000;
   cursor: pointer;
@@ -251,6 +298,7 @@ html.lenis {
 
 /* ... (remaining styles) ... */
 
+
 @media (max-width: 480px) {
   body {
     font-size: 1rem;
@@ -272,12 +320,11 @@ html.lenis {
   }
 
   .info {
-    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
-    height: 4vh;
+    height: 100vh;
   }
 
   .name,
@@ -313,7 +360,7 @@ html.lenis {
 }
 
 .selectedprojectslist div::before {
-  content: "";
+  content: '';
   position: absolute;
   left: -2rem;
   top: 50%;
@@ -341,62 +388,7 @@ html.lenis {
   }
 }
 
-@media (max-width: 800px) {
-  .contact,
-  .selectedprojects,
-  .name,
-  .projects,
-  .archives,
-  .email,
-  .ig,
-  .linkedin,
-  .aboutme,
-  .japanese-text,
-  .resume,
-  .selectedprojectslist div {
-    font-size: 1rem; 
-  }
 
-  .projects{
-    color: #b70000;
-  }
 
-  .selectedprojectslist div::before {
-    width: 0.75rem;
-    height: 0.75rem;
-    left: -1rem;
-  }
-}
 
-/* ... (previous styles) ... */
-
-@media (max-width: 992px) {
-  .image-container {
-    font-size: 1.3rem;
-  }
-
-  .image-container img{
-    max-width: 80rem;
-  }
-}
-
-@media (max-width: 768px) {
-
-  .image-container {
-    max-width: 50em;
-  }
-
-  .text-container {
-    max-width: 25em;
-    font-size: 1rem;
-
-  }
-}
-
-@media (max-width: 600px) {
-  .text-container {
-    font-size: 0.8rem;
-
-  }
-}
 
