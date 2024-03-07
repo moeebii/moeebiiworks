@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function draw(event) {
     if (!isDrawing) return;
 
-    const size = 20; // Adjust the size of the pen
+    const size = 50; // Adjust the size of the pen
     const x = event.clientX - canvas.offsetLeft;
     const y = event.clientY - canvas.offsetTop;
 
