@@ -1,99 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://use.typekit.net/oio2wms.css" />
-    <title>Moe Ebii</title>
-    <link rel="stylesheet" href="main.css" />
-    <link rel="icon" href="redicon.png" type="image/png" />
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <main>
-      <div class="pagecols">
-        <div class="info">
-          <div class="name">MOE EBII</div>
-          <div class="selectedprojects">Selected Projects</div>
-          <div class="selectedprojectslist">
-            <div class="thelostwords">The Lost Words</div>
-            <div class="bluegirl">Blue Girl</div>
-            <div class="dogsoninstagram">Dogs on Instagram</div>
-            <div class="tokkichan">Tokki Chan</div>
-            <div class="thegardenofforkingpaths">
-              The Garden of Forking Paths
-            </div>
-          </div>
-          <div class="projects">Projects</div>
-          <!-- mobile -->
-          <div class="archives">Archives</div>
-          <div class="email">
-            <a href="mailto:moemoeebii@gmail.com">moemoeebii@gmail.com</a>
-          </div>
-          <div class="ig">
-            <a
-              href="https://www.instagram.com/moeebii/?img_index=1"
-              target="_blank"
-              >Instagram</a
-            >
-          </div>
-          <div class="linkedin">
-            <a
-              href="https://www.linkedin.com/in/moe-ebii-544512252"
-              target="_blank"
-              >LinkedIn</a
-            >
-          </div>
-
-          <div class="resume">
-            <a
-              href="https://drive.google.com/file/d/1jS-h_mlCgpz0XNx7hki6-jvxWpDQNWcp/view?usp=sharing"
-              target="_blank"
-              >Resume</a
-            >
-          </div>
-          <div class="aboutme">
-            Moe Ebii is a designer based in New York, Tokyo and Mumbai, studying
-            Communication Design (BFA) at Parsons School of Design.
-          </div>
-          <div class="japanese-text">
-            胡井萌（エビイモエ）はニューヨーク、東京、ムンバイで活動し、パーソンズ芸術大学でコミュニケーションデザインを専攻するデザイナーです。
-          </div>
-          <div class="contact" onclick="redirectToContactPage()">Contact</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://use.typekit.net/oio2wms.css" />
+  <link rel="stylesheet" href="main.css" />
+  <title>Moe Ebii</title>
+  <link rel="icon" href="redicon.png" type="image/png" />
+</head>
+<body>
+  <main>
+    <div class="pagecols">
+      <div class="info">
+        <div class="name"><a href="https://moeebii.github.io/moeebiiworks/" class="name">MOE EBII</a></div>
+        <div class="selectedprojects"><a href="https://moeebii.github.io/moeebiiworks/" target="_blank">Selected Projects</a></div>
+        <div class="selectedprojectslist">
+          <div class="thelostwords"><a href="https://moeebii.github.io/moeebiiselectedprojects/thelostwords/">The Lost Words</a></div>
+          <div class="bluegirl"><a href="https://moeebii.github.io/moeebiiselectedprojects/bluegirl/">Blue Girl</a></div>
+          <div class="dogsoninstagram"><a href="https://moeebii.github.io/moeebiiselectedprojects/dogsoninstagram/">Dogs on Instagram</a></div>
+          <div class="tokkichan"><a href="https://moeebii.github.io/moeebiiselectedprojects/tokkichan/">Tokki Chan</a></div>
+          <div class="thegardenofforkingpaths"><a href="https://moeebii.github.io/moeebiiselectedprojects/thegardenofforkingpaths/">The Garden of Forking Paths</a></div>
         </div>
-        <div class="row">
-          <div class="scroll" id="scrollContainer">
-            <div class="repeated" id="1stcopy">
-              <div class="column">
-                <img src="picture1.png" style="width: 100%" />
-                <img src="picture2.png" style="width: 100%" />
-                <img src="picture3.png" style="width: 100%" />
-              </div>
-              <div class="column">
-                <img src="picture4.png" style="width: 100%" />
-                <img src="redicon.png" style="width: 100%" />
-                <img src="redicon2.png" style="width: 100%" />
-              </div>
-            </div>
-
-            <div class="repeated" id="2ndcopy">
-              <div class="column">
-                <img src="picture1.png" style="width: 100%" />
-                <img src="picture2.png" style="width: 100%" />
-                <img src="picture3.png" style="width: 100%" />
-              </div>
-              <div class="column">
-                <img src="picture4.png" style="width: 100%" />
-                <img src="redicon.png" style="width: 100%" />
-                <img src="redicon2.png" style="width: 100%" />
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="projects">Projects</div>
+        <div class="archives"><a href="https://moeebii.github.io/archives/">Archives</a></div>
+        <div class="email"><a href="mailto:moemoeebii@gmail.com">moemoeebii@gmail.com</a></div>
+        <div class="ig"><a href="https://www.instagram.com/moeebii/?img_index=1" target="_blank">Instagram</a></div>
+        <div class="linkedin"><a href="https://www.linkedin.com/in/moe-ebii-544512252" target="_blank">LinkedIn</a></div>
+        <div class="resume"><a href="https://drive.google.com/file/d/1jS-h_mlCgpz0XNx7hki6-jvxWpDQNWcp/view?usp=sharing" target="_blank">Resume</a></div>
+        <div class="aboutme">Moe Ebii is a designer based in New York, Tokyo, and Mumbai, studying Communication Design (BFA) at Parsons School of Design.</div>
+        <div class="japanese-text">胡井萌（エビイモエ）はニューヨーク、東京、ムンバイで活動し、パーソンズ芸術大学でコミュニケーションデザインを専攻するデザイナーです。</div>
+        <div class="contact" onclick="redirectToContactPage()">Contact</div>
       </div>
-    </main>
-  </body>
+      <div class="row">
+        <div class="scroll" id="scrollContainer">
+
+          <div class="repeated" id="1stcopy">
+            <div class="column">
+              <img src="picture1.png" style="width:100%">
+              <img src="picture2.png" style="width:100%">
+              <img src="picture3.png" style="width:100%">
+            </div>
+            <div class="column">
+              <img src="picture4.png" style="width:100%">
+              <img src="redicon.png" style="width:100%">
+              <img src="redicon2.png" style="width:100%">
+            </div>
+          </div>
+          
+          <div class="repeated" id="2ndcopy">
+            <div class="column">
+              <img src="picture1.png" style="width:100%">
+              <img src="picture2.png" style="width:100%">
+              <img src="picture3.png" style="width:100%">
+            </div>
+            <div class="column">
+              <img src="picture4.png" style="width:100%">
+              <img src="redicon.png" style="width:100%">
+              <img src="redicon2.png" style="width:100%">
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+
+</body>
 </html>

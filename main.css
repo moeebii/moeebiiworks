@@ -1,4 +1,3 @@
-/* Reset some default styles */
 body,
 h1,
 h2,
@@ -65,6 +64,10 @@ body {
 .selectedprojects {
   padding-top: 2rem;
   font-weight: bold;
+}
+
+
+.selectedprojects{
   color: #b70000;
 }
 
@@ -80,18 +83,18 @@ body {
 
 .pagecols {
   display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
+  justify-content: space-between;
 }
 
+
 .row {
+  display: flex;
   flex: 70%;
   max-height: 600px;
-  margin-left: 4rem;
-  overflow-y: auto;
-  --move-initial: calc(0%);
-  --move-final: calc(-50%);
+  flex-direction: column; /* Stack items vertically */
+margin-left: 4rem;
 }
+
 
 .scroll {
   transform: translate3d(0, var(--move-initial), 0);
@@ -111,11 +114,11 @@ body {
 
 @keyframes autoscroll {
   0% {
-    transform: translate3d(0, var(--move-initial), 0);
+      transform: translate3d(0, var(--move-initial), 0);
   }
 
   100% {
-    transform: translate3d(0, var(--move-final), 0);
+      transform: translate3d(0, var(--move-final), 0);
   }
 }
 
@@ -149,11 +152,19 @@ html.lenis {
   pointer-events: none;
 }
 
-/* Additional specificity for anchor elements within .ig and .linkedin */
 .ig a,
 .email a,
 .resume a,
-.linkedin a {
+.linkedin a,
+.name a,
+.thelostwords a,
+.bluegirl a,
+.thegardenofforkingpaths a,
+.dogsoninstagram a,
+.tokkichan a,
+.selectedprojects a,
+.archives a
+{
   color: black;
   text-decoration: none;
 }
@@ -162,7 +173,16 @@ html.lenis {
 .ig a:hover,
 .email a:hover,
 .resume a:hover,
-.linkedin a:hover {
+.linkedin a:hover,
+.name a:hover,
+.thelostwords a:hover,
+.bluegirl a:hover,
+.tokkichan a:hover,
+.thegardenofforkingpaths a:hover,
+.dogsoninstagram a:hover,
+.selectedprojects a:hover
+.archives a:hover
+ {
   color: #b70000;
   cursor: pointer;
   text-decoration: none;
@@ -172,7 +192,7 @@ html.lenis {
   color: grey;
   font-size: 1.25rem;
   padding-top: 2rem;
-  max-width: 20rem;
+  max-width: 19rem;
 }
 
 .japanese-text {
@@ -182,6 +202,7 @@ html.lenis {
   max-width: 20rem;
 }
 
+
 .name:hover,
 .selectedprojects:hover,
 .archives:hover,
@@ -190,6 +211,10 @@ html.lenis {
 .linkedin:hover,
 .projects:hover,
 .contact:hover,
+.thelostwords:hover,
+.bluegirl:hover,
+.thegardenofforkingpaths:hover,
+.dogsoninstagram:hover,
 .selectedprojectslist div:hover {
   color: #b70000;
   cursor: pointer;
@@ -340,6 +365,38 @@ html.lenis {
     width: 0.75rem;
     height: 0.75rem;
     left: -1rem;
+  }
+}
+
+/* ... (previous styles) ... */
+
+@media (max-width: 992px) {
+  .image-container {
+    font-size: 1.3rem;
+  }
+
+  .image-container img{
+    max-width: 80rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .image-container {
+    max-width: 50em;
+  }
+
+  .text-container {
+    max-width: 25em;
+    font-size: 1rem;
+
+  }
+}
+
+@media (max-width: 600px) {
+  .text-container {
+    font-size: 0.8rem;
+
   }
 }
 
