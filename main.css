@@ -40,6 +40,11 @@ h1{
   font-family: 'newedge_666regular_rounded';
 }
 
+.caption{
+  font-family: 'newedge_666regular_rounded';
+  
+}
+
 @font-face {
   font-family: "newedge_666regular";
   src: url("newedge666-regular-webfont.woff2") format("woff2"),
@@ -158,6 +163,34 @@ body {
   object-fit: cover; /* Crop the image to cover the entire container */
   cursor: pointer;
 }
+.gallery :hover{
+  opacity: 80%;
+}
+
+/* Add these styles at the end of your existing CSS */
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; /* Text color */
+  font-size: 1.5rem; /* Adjust the font size */
+  font-weight: bold;
+  text-align: center;
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.3s ease; /* Smooth transition effect */
+}
+
+.gallery-item:hover .caption {
+  opacity: 1;
+}
+
 
 /* ... (your existing styles) ... */
 
@@ -324,6 +357,10 @@ body {
     display: none;
   }
 
+  .caption {
+    font-size: 1rem;
+  }
+
   .info {
     width: 100%;
     display: flex;
@@ -409,6 +446,10 @@ body {
   .resume,
   .selectedprojectslist div {
     font-size: 1rem; 
+  }
+
+  .caption {
+    font-size: 1.2rem;
   }
 
   .selectedprojectslist div::before {
