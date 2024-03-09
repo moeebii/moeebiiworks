@@ -126,6 +126,8 @@ html.lenis {
     padding: 0.5rem;
     font-size: 2rem;
     max-width: 250px;
+    position: fixed;
+
 
   }
 
@@ -141,6 +143,12 @@ html.lenis {
   .name {
     font-size: 1rem; 
   }}
+
+  .info{
+        position: fixed;
+
+  }
+}
 
 
 /* ... (previous styles) ... */
