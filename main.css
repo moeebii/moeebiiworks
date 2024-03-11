@@ -145,11 +145,16 @@ body {
 
   .content-item-photos2 {
     padding-bottom: 10rem;
+    overflow-x: hidden;
+
   }
 
   .content-item-photos img {
     width: 25rem; /* Make the image fill the container width */
     height: auto; /* Maintain aspect ratio */
+    overflow-x: hidden;
+
+    
   }
 }
 
@@ -160,9 +165,12 @@ body {
 
   .content-item-photos1 {
     margin-top: 15rem;
+    overflow-x: hidden;
+
   }
   .content-item-photos img {
     width: 20rem; /* Make the image fill the container width */
     height: auto; /* Maintain aspect ratio */
+    overflow-x: hidden;
   }
 }
