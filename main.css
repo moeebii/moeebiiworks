@@ -65,7 +65,7 @@ body {
 
 .contact-item a {
   text-decoration: none; /* Remove underline by default */
-  color: black; /* Set default text color */
+  color: #e8dcca; /* Set default text color */
 }
 
 .contact-item a:hover {
@@ -75,6 +75,7 @@ body {
 .designer-info a {
   text-decoration: none; /* Remove underline by default */
   color: #e8dcca;
+
 }
 
 .content-item-photos {
@@ -139,6 +140,7 @@ body {
 
   .designer-contacts {
     display: none;
+
   }
 
   .designer-contacts-mobile {
