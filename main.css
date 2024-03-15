@@ -65,7 +65,7 @@ body {
 
 .contact-item a {
   text-decoration: none; /* Remove underline by default */
-  color: #e8dcca; /* Set default text color */
+  color: black; /* Set default text color */
 }
 
 .contact-item a:hover {
@@ -190,6 +190,10 @@ body {
   .designer-contacts {
     display: none;
   }
+  .contact-item a {
+  text-decoration: none; /* Remove underline by default */
+  color: #e8dcca; /* Set default text color */
+}
 
   .content-item-photos1 {
     margin-top: 15rem;
